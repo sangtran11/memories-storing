@@ -5,7 +5,14 @@ export default (posts = [], action) => {
     case "CREATE":
       return [...posts, action.payload];
     case "UPDATE":
-      return posts.map((post) => post._id === action.payload._id ? action.payload : posts)
+      const index = posts.findIndex(p => p._id === action.payload._id);
+      if (index === -1) {
+        return posts;
+      }
+      posts[index] = action.payload;
+      return [...posts];
+    case "DELETE":
+      return posts.filter((post) => post._id !== action.payload);
     default:
       return posts;
   }

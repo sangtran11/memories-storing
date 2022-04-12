@@ -38,7 +38,7 @@ const Form = ({ currentId, setCurrentId }) => {
       title: "",
       message: "",
       tags: "",
-      selectedFile: "",
+      selectedFile: ""
     });
   };
   return (
@@ -86,7 +86,7 @@ const Form = ({ currentId, setCurrentId }) => {
           label="Tags"
           fullWidth
           value={postData.tags}
-          onChange={(e) => setPostData({ ...postData, tags: e.target.value })}
+          onChange={(e) => setPostData({ ...postData, tags: e.target.value.split(",")})}
         />
         <div className={classes.fileInput}>
           <FileBase
@@ -114,7 +114,7 @@ const Form = ({ currentId, setCurrentId }) => {
           onClick={clear}
           fullWidth
         >
-          clear
+          Clear
         </Button>
       </form>
     </Paper>
