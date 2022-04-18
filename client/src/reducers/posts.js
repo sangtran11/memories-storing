@@ -7,7 +7,7 @@ export default (posts = [], action) => {
     case CREATE:
       return [...posts, action.payload];
     case UPDATE:
-      const index = posts.findIndex(p => p._id === action.payload._id);
+      const index = posts.findIndex((p) => p._id === action.payload._id);
       if (index === -1) {
         return posts;
       }
