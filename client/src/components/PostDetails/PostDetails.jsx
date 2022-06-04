@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import moment from "moment";
 import useStyles from "./styles";
+import CommentSection from "./CommentSection";
 import { getPost, getPostsBySearch } from "../../actions/posts";
 
 const PostDetails = () => {
@@ -66,9 +67,7 @@ const PostDetails = () => {
           <strong>Realtime Chat - coming soon!</strong>
         </Typography>
         <Divider style={{ margin: "20px 0" }} />
-        <Typography variant="body1">
-          <strong>Comments - coming soon!</strong>
-        </Typography>
+        <CommentSection post={post} />
         <Divider style={{ margin: "20px 0" }} />
         {recommendedPosts.length && (
           <div className={classes.section}>
